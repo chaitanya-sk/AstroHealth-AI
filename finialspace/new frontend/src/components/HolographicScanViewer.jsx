@@ -163,7 +163,7 @@ export default function HolographicScanViewer({
   const containerRef = useRef(null);
 
   const isSkeletalActive = viewMode === 'skeletal' || (viewMode === 'auto' && systems && systems.skeletal && !systems.cardiovascular && !systems.digestive && !systems.respiratory);
-  const scanImageUrl = isSkeletalActive ? '/skeleton-scan.jpg' : '/anatomy-scan.jpg';
+  const scanImageUrl = isSkeletalActive ? `${import.meta.env.BASE_URL}skeleton-scan.jpg` : `${import.meta.env.BASE_URL}anatomy-scan.jpg`;
 
   const laserActive = onToggleLaserScan !== undefined ? showLaserScan : internalLaser;
   const hotspotsActive = onToggleHotspots !== undefined ? showHotspots : internalHotspots;

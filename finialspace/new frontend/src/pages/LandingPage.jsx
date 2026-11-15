@@ -23,7 +23,7 @@ export default function LandingPage() {
       {/* 1. Cinematic Background Layer */}
       <div className="landing-bg-layer">
         <img
-          src="/images/space-bg.jpg"
+          src={`${import.meta.env.BASE_URL}images/space-bg.jpg`}
           alt="AstroHealth AI Cinematic Space Background"
           className="landing-bg-img"
         />
@@ -38,7 +38,7 @@ export default function LandingPage() {
           {/* Left: Official Astra Health Logo */}
           <div className="flex items-center" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img
-              src="/images/astra-health-logo.png"
+              src={`${import.meta.env.BASE_URL}images/astra-health-logo.png`}
               alt="Astra Health Logo"
               className="landing-logo"
             />

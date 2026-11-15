@@ -523,7 +523,7 @@ export default function HealthMonitoring({ activeSubView = "vitals" }) {
               }}>
                 {/* 3D Holographic Human Skeleton */}
                 <img
-                  src="/skeleton-scan.jpg"
+                  src={`${import.meta.env.BASE_URL}skeleton-scan.jpg`}
                   alt="3D Holographic Human Skeleton - Musculoskeletal System"
                   style={{
                     height: '100%',

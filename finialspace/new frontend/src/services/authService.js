@@ -35,7 +35,9 @@ export const signInWithGoogle = async (redirectPath = '/auth/callback') => {
 
   try {
     const origin = window.location.origin;
-    const redirectTo = `${origin}${redirectPath}`;
+    const base = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+    const cleanPath = redirectPath.startsWith('/') ? redirectPath : `/${redirectPath}`;
+    const redirectTo = `${origin}${base}${cleanPath}`;
     const { data, error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {

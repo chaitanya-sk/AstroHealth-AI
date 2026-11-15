@@ -503,7 +503,7 @@ export default function Apollo17Anatomy({ onBackToApollo17 }) {
   });
 
   const isSkeletonActive = modelMode === 'skeleton' || (modelMode === 'auto' && (activeSystems['Bones'] || activeSystems['Spine']) && !activeSystems['Heart'] && !activeSystems['Lungs'] && !activeSystems['Digestive System']);
-  const scanImageSrc = isSkeletonActive ? '/skeleton-scan.jpg' : '/anatomy-scan.jpg';
+  const scanImageSrc = isSkeletonActive ? `${import.meta.env.BASE_URL}skeleton-scan.jpg` : `${import.meta.env.BASE_URL}anatomy-scan.jpg`;
 
   const toggleSystem = (sysName) => {
     setActiveSystems(prev => ({ ...prev, [sysName]: !prev[sysName] }));
