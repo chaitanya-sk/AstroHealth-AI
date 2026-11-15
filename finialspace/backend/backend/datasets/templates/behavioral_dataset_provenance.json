@@ -1,0 +1,30 @@
+{
+  "dataset_name": "ISS Behavioral Actigraphy and PVT Vigilance Dataset (Template)",
+  "original_source": "NASA Life Sciences Data Archive (LSDA) / Reaction Self-Test Experiment",
+  "download_date": "2026-11-14",
+  "organism_or_population": "Human (Long-Duration Astronaut Crew)",
+  "mission_or_experiment": "ISS Expeditions 20-30 Psychomotor Vigilance Self-Test Study",
+  "number_of_records": 1850,
+  "features": [
+    "subject_id",
+    "mission_day",
+    "sleep_duration_hours",
+    "pvt_mean_rt",
+    "pvt_lapses"
+  ],
+  "target_labels": [
+    "elevated_fatigue_risk"
+  ],
+  "missing_values_summary": {
+    "sleep_duration_hours": 0,
+    "pvt_mean_rt": 0,
+    "pvt_lapses": 0
+  },
+  "known_limitations": [
+    "Actigraphy can overestimate sleep duration during quiet wakefulness.",
+    "PVT test frequency varies across operational mission task demands."
+  ],
+  "usage_and_access_restrictions": "Research & Decision-support evaluation only.",
+  "data_type": "RESEARCH"
+}
+

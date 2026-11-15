@@ -1,0 +1,49 @@
+{
+  "model_key": "cardiovascular_hrv_anomaly",
+  "model_name": "Autonomic HRV Anomaly Detector (MVP)",
+  "model_version": "1.0.0",
+  "filename": "hrv_anomaly_model.joblib",
+  "task_type": "anomaly_detection",
+  "domain": "cardiovascular",
+  "feature_names": [
+    "heart_rate",
+    "hrv_rmssd",
+    "hrv_sdnn",
+    "pnn50"
+  ],
+  "expected_units": {
+    "heart_rate": "bpm",
+    "hrv_rmssd": "ms",
+    "hrv_sdnn": "ms",
+    "pnn50": "%"
+  },
+  "training_dataset_source": "MMASH (Multilevel Monitoring of Activity and Sleep in Healthy people)",
+  "training_cohort": {
+    "cohort_type": "terrestrial_healthy_volunteers",
+    "participants_count": 22,
+    "total_windows": 22492,
+    "environment": "Earth 1g",
+    "window_length_sec": 300,
+    "window_step_sec": 60
+  },
+  "algorithm": "IsolationForest",
+  "hyperparameters": {
+    "n_estimators": 200,
+    "max_samples": "auto",
+    "contamination": 0.02,
+    "preprocessing": "RobustScaler",
+    "random_state": 42
+  },
+  "evaluation_strategy": {
+    "method": "GroupKFold (5 splits grouped by participant_id)",
+    "mean_validation_anomaly_rate": "5.13%",
+    "std_validation_anomaly_rate": "9.6%"
+  },
+  "target_description": "1: Nominal Autonomic Tone, -1: Autonomic Outlier / Telemetry Anomaly",
+  "known_limitations": [
+    "Trained exclusively on 22 young healthy terrestrial subjects in 1g.",
+    "Not validated against microgravity fluid shifts or inflight spaceflight cardiovascular telemetry.",
+    "Unsupervised anomaly score represents statistical distance from terrestrial baseline, NOT disease diagnosis or clinical etiology.",
+    "Contamination parameter is an experimental threshold, not a verified clinical incidence rate."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "dataset_name": "Cardiovascular Deconditioning and Orthostatic Intolerance Dataset (Template)",
+  "original_source": "NASA Life Sciences Data Archive (LSDA) / PhysioNet Spaceflight Analogues",
+  "download_date": "2026-11-14",
+  "organism_or_population": "Human (Astronaut Flight Crew / -6 deg Head-Down Tilt Bed Rest)",
+  "mission_or_experiment": "ISS Expedition Continuous ECG & HDT Bed-Rest Analogue Study",
+  "number_of_records": 1200,
+  "features": [
+    "subject_id",
+    "mission_day",
+    "heart_rate",
+    "systolic_bp",
+    "diastolic_bp",
+    "hrv_rmssd"
+  ],
+  "target_labels": [
+    "autonomic_deconditioning_risk"
+  ],
+  "missing_values_summary": {
+    "heart_rate": 0,
+    "systolic_bp": 0,
+    "diastolic_bp": 0,
+    "hrv_rmssd": 0
+  },
+  "known_limitations": [
+    "Small sample size inherent to spaceflight cohorts (N=15-30 individuals).",
+    "High inter-individual baseline variability requires personalized subject-stratified cross-validation.",
+    "Bed-rest analogue data may not capture multi-stressor deep space radiation effects."
+  ],
+  "usage_and_access_restrictions": "Research & Non-clinical decision-support exploration only.",
+  "data_type": "RESEARCH"
+}
+

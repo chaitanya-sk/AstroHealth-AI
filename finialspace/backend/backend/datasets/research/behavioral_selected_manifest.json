@@ -1,0 +1,31 @@
+{
+  "dataset_name": "NASA LSDA Reaction Self-Test & Astronaut Sleep Actigraphy Archive",
+  "original_source": "NASA Life Sciences Data Archive (LSDA) / Human Research Program (HRP)",
+  "download_date": "2026-11-14",
+  "organism_or_population": "Human (24 Long-Duration Active Astronaut Crew Members)",
+  "mission_or_experiment": "ISS Expeditions 19-33 Behavioral Health & Performance Experiment",
+  "number_of_records": 1850,
+  "features": [
+    "subject_id",
+    "mission_day",
+    "sleep_duration_hours",
+    "pvt_mean_rt",
+    "pvt_lapses"
+  ],
+  "target_labels": [
+    "elevated_fatigue_risk"
+  ],
+  "missing_values_summary": {
+    "sleep_duration_hours": 0,
+    "pvt_mean_rt": 0,
+    "pvt_lapses": 0
+  },
+  "known_limitations": [
+    "Controlled Human Research Data: Individual crew level time-series requires formal NLSP data request approval.",
+    "Sleep actigraphy can overestimate sleep during motionless resting wakefulness.",
+    "Data partitioning must be strictly grouped by astronaut subject ID to prevent data leakage."
+  ],
+  "usage_and_access_restrictions": "Controlled Access: Requires NASA Life Sciences Portal (NLSP) HRP Data Request approval.",
+  "data_type": "RESEARCH"
+}
+

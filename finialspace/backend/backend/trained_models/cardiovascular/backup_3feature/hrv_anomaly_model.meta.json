@@ -1,0 +1,52 @@
+{
+  "model_key": "cardiovascular_hrv_anomaly",
+  "model_name": "Autonomic HRV Anomaly Detector (MVP)",
+  "model_version": "1.0.0",
+  "algorithm": "IsolationForest",
+  "task_type": "anomaly_detection",
+  "features": [
+    "heart_rate",
+    "hrv_rmssd",
+    "hrv_sdnn"
+  ],
+  "units": {
+    "heart_rate": "bpm",
+    "hrv_rmssd": "ms",
+    "hrv_sdnn": "ms"
+  },
+  "contamination": 0.05,
+  "training_participants": [
+    "user_1",
+    "user_2",
+    "user_5",
+    "user_6",
+    "user_9",
+    "user_12",
+    "user_13",
+    "user_14",
+    "user_16",
+    "user_17",
+    "user_18",
+    "user_19",
+    "user_21"
+  ],
+  "validation_participants": [
+    "user_3",
+    "user_8",
+    "user_10",
+    "user_22"
+  ],
+  "test_participants": [
+    "user_7",
+    "user_11",
+    "user_15",
+    "user_20"
+  ],
+  "train_samples": 2773,
+  "validation_samples": 814,
+  "test_samples": 868,
+  "train_anomaly_rate": 0.05012621709340065,
+  "val_anomaly_rate": 0.07002457002457002,
+  "test_anomaly_rate": 0.06105990783410138,
+  "clinical_limitation": "Trained on 22 terrestrial subjects in 1g. Decision-support outlier detector only, NOT medical diagnostic."
+}

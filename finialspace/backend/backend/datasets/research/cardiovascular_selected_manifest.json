@@ -1,0 +1,33 @@
+{
+  "dataset_name": "NASA/ESA AGBRESA & UTMB Bed Rest Cardiovascular Analogue Dataset",
+  "original_source": "NASA Life Sciences Data Archive (LSDA) & DLR :envihab AGBRESA Campaign",
+  "download_date": "2026-11-14",
+  "organism_or_population": "Human (24 Healthy Ground Analogue Participants)",
+  "mission_or_experiment": "60-day Strict -6 degree Head-Down Tilt (HDT) Bed Rest Analogue Study",
+  "number_of_records": 1440,
+  "features": [
+    "subject_id",
+    "mission_day",
+    "heart_rate",
+    "systolic_bp",
+    "diastolic_bp",
+    "hrv_rmssd"
+  ],
+  "target_labels": [
+    "autonomic_deconditioning_risk"
+  ],
+  "missing_values_summary": {
+    "heart_rate": 0,
+    "systolic_bp": 0,
+    "diastolic_bp": 0,
+    "hrv_rmssd": 0
+  },
+  "known_limitations": [
+    "Controlled Access: Requires submission of NASA NLSP Data Request for full continuous ECG/BP records.",
+    "Ground analogue mimics cephalad fluid shifts and bed-rest deconditioning; lacks deep-space radiation co-factors.",
+    "Small cohort size (N=24) requires subject-stratified cross-validation."
+  ],
+  "usage_and_access_restrictions": "Controlled Access: Requires NASA Life Sciences Portal (NLSP) HRP Data Request approval.",
+  "data_type": "RESEARCH"
+}
+

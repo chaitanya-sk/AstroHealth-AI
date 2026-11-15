@@ -1,0 +1,482 @@
+{
+  "report_title": "AstroHealth AI Phase 7.2 MMASH Cardiovascular Quality Report",
+  "processing_version": "1.0.0",
+  "cohort_summary": {
+    "participants_processed": 22,
+    "total_raw_intervals": 1749295,
+    "total_retained_intervals": 1740412,
+    "retained_pct_cohort": 99.49,
+    "total_rejected_intervals": 8883,
+    "rejected_pct_cohort": 0.51,
+    "total_valid_windows": 22492,
+    "total_rejected_windows": 919,
+    "window_duration_seconds": 300,
+    "sliding_step_seconds": 60,
+    "quality_criterion_min_intervals": 100,
+    "gap_rejection_threshold_seconds": 5.0
+  },
+  "participant_details": [
+    {
+      "participant_id": "MMASH_USER_1",
+      "raw_user_folder": "user_1",
+      "raw_interval_count": 91858,
+      "retained_interval_count": 91419,
+      "retained_pct": 99.52,
+      "rejected_interval_count": 439,
+      "rejected_pct": 0.48,
+      "recording_duration_hours": 18.18,
+      "valid_5min_windows_count": 1084,
+      "rejected_windows_count": 2,
+      "mean_heart_rate_bpm": 83.98,
+      "mean_hrv_rmssd_ms": 61.73,
+      "mean_hrv_sdnn_ms": 81.86,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 430,
+        "too_long_above_2_00s": 7,
+        "recording_gap_above_5_00s": 2,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_2",
+      "raw_user_folder": "user_2",
+      "raw_interval_count": 71646,
+      "retained_interval_count": 70652,
+      "retained_pct": 98.61,
+      "rejected_interval_count": 994,
+      "rejected_pct": 1.39,
+      "recording_duration_hours": 16.47,
+      "valid_5min_windows_count": 735,
+      "rejected_windows_count": 249,
+      "mean_heart_rate_bpm": 73.29,
+      "mean_hrv_rmssd_ms": 60.29,
+      "mean_hrv_sdnn_ms": 83.58,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 591,
+        "too_long_above_2_00s": 305,
+        "recording_gap_above_5_00s": 98,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_3",
+      "raw_user_folder": "user_3",
+      "raw_interval_count": 83965,
+      "retained_interval_count": 83582,
+      "retained_pct": 99.54,
+      "rejected_interval_count": 383,
+      "rejected_pct": 0.46,
+      "recording_duration_hours": 18.14,
+      "valid_5min_windows_count": 1052,
+      "rejected_windows_count": 32,
+      "mean_heart_rate_bpm": 76.92,
+      "mean_hrv_rmssd_ms": 56.64,
+      "mean_hrv_sdnn_ms": 72.24,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 336,
+        "too_long_above_2_00s": 39,
+        "recording_gap_above_5_00s": 8,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_4",
+      "raw_user_folder": "user_4",
+      "raw_interval_count": 62669,
+      "retained_interval_count": 62519,
+      "retained_pct": 99.76,
+      "rejected_interval_count": 150,
+      "rejected_pct": 0.24,
+      "recording_duration_hours": 17.34,
+      "valid_5min_windows_count": 1021,
+      "rejected_windows_count": 15,
+      "mean_heart_rate_bpm": 60.29,
+      "mean_hrv_rmssd_ms": 494.48,
+      "mean_hrv_sdnn_ms": 317.77,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 38,
+        "too_long_above_2_00s": 107,
+        "recording_gap_above_5_00s": 5,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_5",
+      "raw_user_folder": "user_5",
+      "raw_interval_count": 77782,
+      "retained_interval_count": 77688,
+      "retained_pct": 99.88,
+      "rejected_interval_count": 94,
+      "rejected_pct": 0.12,
+      "recording_duration_hours": 17.44,
+      "valid_5min_windows_count": 989,
+      "rejected_windows_count": 53,
+      "mean_heart_rate_bpm": 74.59,
+      "mean_hrv_rmssd_ms": 70.0,
+      "mean_hrv_sdnn_ms": 87.64,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 53,
+        "too_long_above_2_00s": 26,
+        "recording_gap_above_5_00s": 15,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_6",
+      "raw_user_folder": "user_6",
+      "raw_interval_count": 92357,
+      "retained_interval_count": 91942,
+      "retained_pct": 99.55,
+      "rejected_interval_count": 415,
+      "rejected_pct": 0.45,
+      "recording_duration_hours": 18.06,
+      "valid_5min_windows_count": 1021,
+      "rejected_windows_count": 58,
+      "mean_heart_rate_bpm": 84.78,
+      "mean_hrv_rmssd_ms": 60.29,
+      "mean_hrv_sdnn_ms": 77.5,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 335,
+        "too_long_above_2_00s": 64,
+        "recording_gap_above_5_00s": 16,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_7",
+      "raw_user_folder": "user_7",
+      "raw_interval_count": 83507,
+      "retained_interval_count": 83501,
+      "retained_pct": 99.99,
+      "rejected_interval_count": 6,
+      "rejected_pct": 0.01,
+      "recording_duration_hours": 18.38,
+      "valid_5min_windows_count": 1099,
+      "rejected_windows_count": 0,
+      "mean_heart_rate_bpm": 75.68,
+      "mean_hrv_rmssd_ms": 32.15,
+      "mean_hrv_sdnn_ms": 76.71,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 4,
+        "too_long_above_2_00s": 2,
+        "recording_gap_above_5_00s": 0,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_8",
+      "raw_user_folder": "user_8",
+      "raw_interval_count": 71498,
+      "retained_interval_count": 70747,
+      "retained_pct": 98.95,
+      "rejected_interval_count": 751,
+      "rejected_pct": 1.05,
+      "recording_duration_hours": 16.52,
+      "valid_5min_windows_count": 919,
+      "rejected_windows_count": 68,
+      "mean_heart_rate_bpm": 72.14,
+      "mean_hrv_rmssd_ms": 59.81,
+      "mean_hrv_sdnn_ms": 80.62,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 656,
+        "too_long_above_2_00s": 79,
+        "recording_gap_above_5_00s": 16,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_9",
+      "raw_user_folder": "user_9",
+      "raw_interval_count": 75250,
+      "retained_interval_count": 75200,
+      "retained_pct": 99.93,
+      "rejected_interval_count": 50,
+      "rejected_pct": 0.07,
+      "recording_duration_hours": 17.18,
+      "valid_5min_windows_count": 1016,
+      "rejected_windows_count": 10,
+      "mean_heart_rate_bpm": 72.83,
+      "mean_hrv_rmssd_ms": 45.92,
+      "mean_hrv_sdnn_ms": 81.4,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 37,
+        "too_long_above_2_00s": 9,
+        "recording_gap_above_5_00s": 4,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_10",
+      "raw_user_folder": "user_10",
+      "raw_interval_count": 68118,
+      "retained_interval_count": 67751,
+      "retained_pct": 99.46,
+      "rejected_interval_count": 367,
+      "rejected_pct": 0.54,
+      "recording_duration_hours": 15.69,
+      "valid_5min_windows_count": 801,
+      "rejected_windows_count": 136,
+      "mean_heart_rate_bpm": 72.89,
+      "mean_hrv_rmssd_ms": 68.27,
+      "mean_hrv_sdnn_ms": 90.76,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 234,
+        "too_long_above_2_00s": 88,
+        "recording_gap_above_5_00s": 45,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_11",
+      "raw_user_folder": "user_11",
+      "raw_interval_count": 76803,
+      "retained_interval_count": 76749,
+      "retained_pct": 99.93,
+      "rejected_interval_count": 54,
+      "rejected_pct": 0.07,
+      "recording_duration_hours": 18.28,
+      "valid_5min_windows_count": 1075,
+      "rejected_windows_count": 18,
+      "mean_heart_rate_bpm": 69.93,
+      "mean_hrv_rmssd_ms": 51.2,
+      "mean_hrv_sdnn_ms": 87.06,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 38,
+        "too_long_above_2_00s": 11,
+        "recording_gap_above_5_00s": 5,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_12",
+      "raw_user_folder": "user_12",
+      "raw_interval_count": 81214,
+      "retained_interval_count": 81207,
+      "retained_pct": 99.99,
+      "rejected_interval_count": 7,
+      "rejected_pct": 0.01,
+      "recording_duration_hours": 18.4,
+      "valid_5min_windows_count": 1089,
+      "rejected_windows_count": 10,
+      "mean_heart_rate_bpm": 73.38,
+      "mean_hrv_rmssd_ms": 34.34,
+      "mean_hrv_sdnn_ms": 65.01,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 4,
+        "too_long_above_2_00s": 1,
+        "recording_gap_above_5_00s": 2,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_13",
+      "raw_user_folder": "user_13",
+      "raw_interval_count": 81267,
+      "retained_interval_count": 81238,
+      "retained_pct": 99.96,
+      "rejected_interval_count": 29,
+      "rejected_pct": 0.04,
+      "recording_duration_hours": 18.03,
+      "valid_5min_windows_count": 1065,
+      "rejected_windows_count": 13,
+      "mean_heart_rate_bpm": 75.11,
+      "mean_hrv_rmssd_ms": 33.75,
+      "mean_hrv_sdnn_ms": 68.55,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 14,
+        "too_long_above_2_00s": 9,
+        "recording_gap_above_5_00s": 6,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_14",
+      "raw_user_folder": "user_14",
+      "raw_interval_count": 78527,
+      "retained_interval_count": 78524,
+      "retained_pct": 100.0,
+      "rejected_interval_count": 3,
+      "rejected_pct": 0.0,
+      "recording_duration_hours": 18.19,
+      "valid_5min_windows_count": 1087,
+      "rejected_windows_count": 0,
+      "mean_heart_rate_bpm": 71.82,
+      "mean_hrv_rmssd_ms": 30.94,
+      "mean_hrv_sdnn_ms": 63.99,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 3,
+        "too_long_above_2_00s": 0,
+        "recording_gap_above_5_00s": 0,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_15",
+      "raw_user_folder": "user_15",
+      "raw_interval_count": 102340,
+      "retained_interval_count": 98943,
+      "retained_pct": 96.68,
+      "rejected_interval_count": 3397,
+      "rejected_pct": 3.32,
+      "recording_duration_hours": 19.07,
+      "valid_5min_windows_count": 1023,
+      "rejected_windows_count": 117,
+      "mean_heart_rate_bpm": 85.12,
+      "mean_hrv_rmssd_ms": 64.33,
+      "mean_hrv_sdnn_ms": 76.52,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 3272,
+        "too_long_above_2_00s": 87,
+        "recording_gap_above_5_00s": 38,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_16",
+      "raw_user_folder": "user_16",
+      "raw_interval_count": 78181,
+      "retained_interval_count": 77899,
+      "retained_pct": 99.64,
+      "rejected_interval_count": 282,
+      "rejected_pct": 0.36,
+      "recording_duration_hours": 18.68,
+      "valid_5min_windows_count": 1109,
+      "rejected_windows_count": 7,
+      "mean_heart_rate_bpm": 69.53,
+      "mean_hrv_rmssd_ms": 56.17,
+      "mean_hrv_sdnn_ms": 86.86,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 266,
+        "too_long_above_2_00s": 12,
+        "recording_gap_above_5_00s": 4,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_17",
+      "raw_user_folder": "user_17",
+      "raw_interval_count": 92951,
+      "retained_interval_count": 92515,
+      "retained_pct": 99.53,
+      "rejected_interval_count": 436,
+      "rejected_pct": 0.47,
+      "recording_duration_hours": 18.35,
+      "valid_5min_windows_count": 1070,
+      "rejected_windows_count": 26,
+      "mean_heart_rate_bpm": 84.33,
+      "mean_hrv_rmssd_ms": 56.31,
+      "mean_hrv_sdnn_ms": 80.68,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 386,
+        "too_long_above_2_00s": 39,
+        "recording_gap_above_5_00s": 11,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_18",
+      "raw_user_folder": "user_18",
+      "raw_interval_count": 74296,
+      "retained_interval_count": 73764,
+      "retained_pct": 99.28,
+      "rejected_interval_count": 532,
+      "rejected_pct": 0.72,
+      "recording_duration_hours": 17.64,
+      "valid_5min_windows_count": 1023,
+      "rejected_windows_count": 31,
+      "mean_heart_rate_bpm": 69.78,
+      "mean_hrv_rmssd_ms": 72.5,
+      "mean_hrv_sdnn_ms": 100.9,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 489,
+        "too_long_above_2_00s": 34,
+        "recording_gap_above_5_00s": 9,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_19",
+      "raw_user_folder": "user_19",
+      "raw_interval_count": 80239,
+      "retained_interval_count": 80107,
+      "retained_pct": 99.84,
+      "rejected_interval_count": 132,
+      "rejected_pct": 0.16,
+      "recording_duration_hours": 18.27,
+      "valid_5min_windows_count": 1082,
+      "rejected_windows_count": 10,
+      "mean_heart_rate_bpm": 72.93,
+      "mean_hrv_rmssd_ms": 58.31,
+      "mean_hrv_sdnn_ms": 77.48,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 112,
+        "too_long_above_2_00s": 18,
+        "recording_gap_above_5_00s": 2,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_20",
+      "raw_user_folder": "user_20",
+      "raw_interval_count": 72209,
+      "retained_interval_count": 71914,
+      "retained_pct": 99.59,
+      "rejected_interval_count": 295,
+      "rejected_pct": 0.41,
+      "recording_duration_hours": 17.34,
+      "valid_5min_windows_count": 988,
+      "rejected_windows_count": 48,
+      "mean_heart_rate_bpm": 69.12,
+      "mean_hrv_rmssd_ms": 44.01,
+      "mean_hrv_sdnn_ms": 68.69,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 234,
+        "too_long_above_2_00s": 44,
+        "recording_gap_above_5_00s": 17,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_21",
+      "raw_user_folder": "user_21",
+      "raw_interval_count": 81677,
+      "retained_interval_count": 81626,
+      "retained_pct": 99.94,
+      "rejected_interval_count": 51,
+      "rejected_pct": 0.06,
+      "recording_duration_hours": 17.97,
+      "valid_5min_windows_count": 1069,
+      "rejected_windows_count": 5,
+      "mean_heart_rate_bpm": 75.66,
+      "mean_hrv_rmssd_ms": 38.13,
+      "mean_hrv_sdnn_ms": 73.58,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 37,
+        "too_long_above_2_00s": 13,
+        "recording_gap_above_5_00s": 1,
+        "non_numeric_or_non_positive": 0
+      }
+    },
+    {
+      "participant_id": "MMASH_USER_22",
+      "raw_user_folder": "user_22",
+      "raw_interval_count": 70941,
+      "retained_interval_count": 70925,
+      "retained_pct": 99.98,
+      "rejected_interval_count": 16,
+      "rejected_pct": 0.02,
+      "recording_duration_hours": 18.17,
+      "valid_5min_windows_count": 1075,
+      "rejected_windows_count": 11,
+      "mean_heart_rate_bpm": 65.03,
+      "mean_hrv_rmssd_ms": 48.92,
+      "mean_hrv_sdnn_ms": 82.52,
+      "rejection_reasons": {
+        "too_short_sub_0_30s": 11,
+        "too_long_above_2_00s": 2,
+        "recording_gap_above_5_00s": 3,
+        "non_numeric_or_non_positive": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+model_key,domain,model_feature_name,expected_unit,candidate_dataset_column,candidate_unit,transformation_required,notes
+cardiovascular_risk,cardiovascular,heart_rate,bpm,HR_bpm,bpm,none,Direct 1:1 match
+cardiovascular_risk,cardiovascular,systolic_bp,mmHg,SBP_mmHg,mmHg,none,Direct 1:1 match
+cardiovascular_risk,cardiovascular,diastolic_bp,mmHg,DBP_mmHg,mmHg,none,Direct 1:1 match
+cardiovascular_risk,cardiovascular,hrv_rmssd,ms,RMSSD_ms,ms,none,Time-domain root-mean-square of successive RR differences
+behavioral_fatigue,behavioral,sleep_duration_hours,hours,TST_hours,hours,none,Actigraphy total sleep time per 24h rest interval
+behavioral_fatigue,behavioral,pvt_mean_rt,ms,Mean_RT,ms,none,Standard 5-min or 10-min PVT mean reaction time
+behavioral_fatigue,behavioral,pvt_lapses,count,Lapses_500ms,count,none,Reaction times exceeding 500ms threshold
+environmental_anomaly,environment,cabin_co2_pp,mmHg,CO2_PPO2_MMHG,mmHg,none,Partial pressure of carbon dioxide
+environmental_anomaly,environment,cabin_o2_pp,mmHg,O2_PPO2_MMHG,mmHg,none,Partial pressure of oxygen
+environmental_anomaly,environment,cabin_pressure,kPa,CABIN_PRESSURE_PSIA,psia,val * 6.894757,Convert psia to kPa for standard SI metric compliance
+environmental_anomaly,environment,cabin_temperature,C,AIR_TEMP_C,C,none,Module ambient air temperature
+environmental_anomaly,environment,cabin_humidity,%,REL_HUMIDITY_PCT,%,none,Module ambient relative humidity
+radiation_risk,radiation,daily_dose_equivalent,mSv/day,DAILY_DOSE_MSV,mSv/day,none,Active silicon dosimeter or TEPC reading
+radiation_risk,radiation,active_flux_rate,particles/cm2/s,PARTICLE_FLUX_RATE,particles/cm2/s,none,Charged particle flux rate from vehicle dosimeter
+radiation_risk,radiation,cumulative_dose_career,mSv,CAREER_CUMULATIVE_MSV,mSv,none,Longitudinal mission career cumulative dose
+

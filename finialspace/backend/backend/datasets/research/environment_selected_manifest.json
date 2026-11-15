@@ -1,0 +1,34 @@
+{
+  "dataset_name": "NASA ISS ECLSS Operational Atmospheric Telemetry Archive",
+  "original_source": "NASA Technical Reports Server (NTRS) & Spacecraft Telemetry Archive",
+  "download_date": "2026-11-14",
+  "organism_or_population": "Space Habitat Environmental Control Architecture (ISS USOS Modules)",
+  "mission_or_experiment": "ISS US Lab (Destiny) & Node 3 (Tranquility) Environmental Monitoring",
+  "number_of_records": 5000,
+  "features": [
+    "timestamp",
+    "cabin_co2_pp",
+    "cabin_o2_pp",
+    "cabin_pressure",
+    "cabin_temperature",
+    "cabin_humidity"
+  ],
+  "target_labels": [
+    "atmospheric_anomaly_flag"
+  ],
+  "missing_values_summary": {
+    "cabin_co2_pp": 0,
+    "cabin_o2_pp": 0,
+    "cabin_pressure": 0,
+    "cabin_temperature": 0,
+    "cabin_humidity": 0
+  },
+  "known_limitations": [
+    "Pressure telemetry originally recorded in psia requires conversion to kPa (multiply by 6.894757).",
+    "Transient scrubber valve cycling spikes must be differentiated from systemic atmospheric degradation.",
+    "Sensor measurements reflect centralized manifold telemetry rather than micro-pocketing."
+  ],
+  "usage_and_access_restrictions": "Public domain engineering telemetry. Open access for research.",
+  "data_type": "RESEARCH"
+}
+

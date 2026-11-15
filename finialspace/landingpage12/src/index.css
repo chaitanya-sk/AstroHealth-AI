@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F2F3F1;
+    color: #20272D;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+/* Refined light scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F2F3F1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5D9D2;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B0B7AB;
+}
+
+/* Atmospheric light dashboard background gradients */
+.atmospheric-yellow-gradient {
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(233, 201, 90, 0.14) 0%,
+    rgba(250, 250, 247, 0) 65%
+  );
+}
+
+.dashboard-container-shadow {
+  box-shadow: 0 16px 40px -12px rgba(32, 39, 45, 0.05), 0 0 1px 1px rgba(231, 233, 229, 0.7);
+}
+
+/* Subtle light grid background pattern */
+.subtle-light-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(231, 233, 229, 0.6) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(231, 233, 229, 0.6) 1px, transparent 1px);
+}
+
+/* Cinematic anatomy environment */
+.anatomy-viewport {
+  background: radial-gradient(
+    ellipse at 50% 40%,
+    #0A2548 0%,
+    #061B35 75%,
+    #041122 100%
+  );
+}
+
+/* Pulsing beacon animation */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(1.1); }
+}
+
+.animate-subtle-pulse {
+  animation: subtle-pulse 2.2s infinite ease-in-out;
+}
