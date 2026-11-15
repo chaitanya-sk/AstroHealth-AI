@@ -106,8 +106,16 @@ function MainAppContent() {
     }
   }, [location.pathname]);
 
-  // 1. Handle Google OAuth callback endpoint
-  if (location.pathname === '/auth/callback' || location.pathname.startsWith('/auth/callback')) {
+  // 1. Handle Google OAuth callback endpoint or any route receiving OAuth tokens / code
+  const hasAuthParams = 
+    typeof window !== 'undefined' && (
+      window.location.hash.includes('access_token=') || 
+      window.location.hash.includes('error=') ||
+      window.location.search.includes('code=') ||
+      window.location.search.includes('error=')
+    );
+
+  if (location.pathname === '/auth/callback' || location.pathname.startsWith('/auth/callback') || hasAuthParams) {
     return <AuthCallback />;
   }
 
