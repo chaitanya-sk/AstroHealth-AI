@@ -108,6 +108,7 @@ function MainAppContent() {
 
   // 1. Handle Google OAuth callback endpoint or any route receiving OAuth tokens / code
   const hasAuthParams = 
+    !isAuthenticated &&
     typeof window !== 'undefined' && (
       window.location.hash.includes('access_token=') || 
       window.location.hash.includes('error=') ||
@@ -115,7 +116,7 @@ function MainAppContent() {
       window.location.search.includes('error=')
     );
 
-  if (location.pathname === '/auth/callback' || location.pathname.startsWith('/auth/callback') || hasAuthParams) {
+  if ((location.pathname === '/auth/callback' || location.pathname.startsWith('/auth/callback') || hasAuthParams) && !isAuthenticated) {
     return <AuthCallback />;
   }
 

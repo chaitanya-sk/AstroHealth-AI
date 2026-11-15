@@ -16,6 +16,39 @@ export default function AuthCallback() {
 
     const processAuthCallback = async () => {
       try {
+        const handleSuccess = async (userSession) => {
+          if (!mounted) return;
+          const u = userSession?.user;
+          const meta = u?.user_metadata || {};
+          const name = meta.full_name || meta.name || u?.email?.split('@')[0] || 'Astronaut';
+          const avatar = meta.avatar_url || meta.picture || null;
+          setUserName(name);
+          setUserAvatar(avatar);
+
+          if (refreshSession) {
+            await refreshSession();
+          }
+
+          // Strip hash tokens from browser address bar immediately so they don't linger
+          if (typeof window !== 'undefined') {
+            try {
+              window.location.hash = '';
+              if (window.history?.replaceState) {
+                window.history.replaceState(null, document.title, window.location.pathname);
+              }
+            } catch (e) {}
+          }
+
+          navigate('/dashboard', { replace: true });
+        };
+
+        // 0. Check if an active authenticated session is ALREADY established
+        const { data: { session: existingSession } } = await supabase.auth.getSession();
+        if (existingSession?.user && mounted) {
+          await handleSuccess(existingSession);
+          return;
+        }
+
         // 1. Check for OAuth error parameters in query string or hash
         const searchParams = new URLSearchParams(window.location.search);
         const hash = window.location.hash.startsWith('#') ? window.location.hash.substring(1) : window.location.hash;
@@ -34,24 +67,6 @@ export default function AuthCallback() {
           if (mounted) setErrorStatus(message);
           return;
         }
-
-        const handleSuccess = async (userSession) => {
-          if (!mounted) return;
-          const u = userSession?.user;
-          const meta = u?.user_metadata || {};
-          const name = meta.full_name || meta.name || u?.email?.split('@')[0] || 'Astronaut';
-          const avatar = meta.avatar_url || meta.picture || null;
-          setUserName(name);
-          setUserAvatar(avatar);
-
-          if (refreshSession) {
-            await refreshSession();
-          }
-
-          setTimeout(() => {
-            navigate('/dashboard', { replace: true });
-          }, 350);
-        };
 
         // 2. Direct Hash Token Processing (Implicit Flow)
         const accessToken = hashParams.get('access_token');
