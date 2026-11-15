@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../services/supabaseClient';
+import { useAuth } from '../context/AuthContext';
 import { ShieldCheck, AlertCircle, CheckCircle2, ArrowRight, Flame } from 'lucide-react';
 
 export default function AuthCallback() {
   const navigate = useNavigate();
+  const { refreshSession } = useAuth();
   const [errorStatus, setErrorStatus] = useState(null);
   const [userName, setUserName] = useState(null);
   const [userAvatar, setUserAvatar] = useState(null);
@@ -16,7 +18,8 @@ export default function AuthCallback() {
       try {
         // 1. Check for OAuth error parameters in query string or hash
         const searchParams = new URLSearchParams(window.location.search);
-        const hashParams = new URLSearchParams(window.location.hash.substring(1));
+        const hash = window.location.hash.startsWith('#') ? window.location.hash.substring(1) : window.location.hash;
+        const hashParams = new URLSearchParams(hash);
 
         const error = searchParams.get('error') || hashParams.get('error');
         const errorDescription = searchParams.get('error_description') || hashParams.get('error_description');
@@ -32,7 +35,39 @@ export default function AuthCallback() {
           return;
         }
 
-        // 2. If PKCE authorization code is present in URL
+        const handleSuccess = async (userSession) => {
+          if (!mounted) return;
+          const u = userSession?.user;
+          const meta = u?.user_metadata || {};
+          const name = meta.full_name || meta.name || u?.email?.split('@')[0] || 'Astronaut';
+          const avatar = meta.avatar_url || meta.picture || null;
+          setUserName(name);
+          setUserAvatar(avatar);
+
+          if (refreshSession) {
+            await refreshSession();
+          }
+
+          setTimeout(() => {
+            navigate('/dashboard', { replace: true });
+          }, 350);
+        };
+
+        // 2. Direct Hash Token Processing (Implicit Flow)
+        const accessToken = hashParams.get('access_token');
+        const refreshToken = hashParams.get('refresh_token');
+        if (accessToken) {
+          const { data, error: setErr } = await supabase.auth.setSession({
+            access_token: accessToken,
+            refresh_token: refreshToken || '',
+          });
+          if (!setErr && data?.session?.user) {
+            await handleSuccess(data.session);
+            return;
+          }
+        }
+
+        // 3. PKCE code exchange (Authorization Code Flow)
         const code = searchParams.get('code');
         if (code) {
           const { data, error: exchangeError } = await supabase.auth.exchangeCodeForSession(code);
@@ -41,22 +76,13 @@ export default function AuthCallback() {
             if (mounted) setErrorStatus(exchangeError.message);
             return;
           }
-
-          if (data.session && data.user && mounted) {
-            const meta = data.user.user_metadata || {};
-            const name = meta.full_name || meta.name || data.user.email?.split('@')[0] || 'Astronaut';
-            const avatar = meta.avatar_url || meta.picture || null;
-            setUserName(name);
-            setUserAvatar(avatar);
-
-            setTimeout(() => {
-              navigate('/dashboard', { replace: true });
-            }, 600);
+          if (data?.session && mounted) {
+            await handleSuccess(data.session);
             return;
           }
         }
 
-        // 3. Inspect active session directly (e.g. hash fragments automatically processed by supabase)
+        // 4. Inspect active session
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
         if (sessionError) {
           if (mounted) setErrorStatus(sessionError.message);
@@ -64,29 +90,18 @@ export default function AuthCallback() {
         }
 
         if (session?.user && mounted) {
-          const meta = session.user.user_metadata || {};
-          const name = meta.full_name || meta.name || session.user.email?.split('@')[0] || 'Astronaut';
-          const avatar = meta.avatar_url || meta.picture || null;
-          setUserName(name);
-          setUserAvatar(avatar);
-
-          setTimeout(() => {
-            navigate('/dashboard', { replace: true });
-          }, 600);
+          await handleSuccess(session);
           return;
         }
 
-        // 4. Listen to onAuthStateChange in case session is being processed asynchronously
-        const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-          if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') && session?.user && mounted) {
-            const meta = session.user.user_metadata || {};
-            const name = meta.full_name || meta.name || session.user.email?.split('@')[0] || 'Astronaut';
-            setUserName(name);
-            navigate('/dashboard', { replace: true });
+        // 5. Listen to auth state changes (SIGNED_IN, TOKEN_REFRESHED, INITIAL_SESSION)
+        const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+          if ((event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED' || event === 'INITIAL_SESSION') && session?.user && mounted) {
+            await handleSuccess(session);
           }
         });
 
-        // 5. Fallback safety timeout if no session arrives
+        // 6. Fallback safety timeout if no session arrives
         const timeoutId = setTimeout(() => {
           if (mounted && !userName) {
             setErrorStatus('Authentication timed out or no active session was returned. Please try signing in again.');
@@ -94,7 +109,7 @@ export default function AuthCallback() {
         }, 8000);
 
         return () => {
-          subscription.unsubscribe();
+          subscription?.unsubscribe();
           clearTimeout(timeoutId);
         };
       } catch (err) {
@@ -109,7 +124,7 @@ export default function AuthCallback() {
     return () => {
       mounted = false;
     };
-  }, [navigate]);
+  }, [navigate, refreshSession]);
 
   return (
     <div

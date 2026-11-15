@@ -107,7 +107,7 @@ function MainAppContent() {
   }, [location.pathname]);
 
   // 1. Handle Google OAuth callback endpoint
-  if (location.pathname === '/auth/callback') {
+  if (location.pathname === '/auth/callback' || location.pathname.startsWith('/auth/callback')) {
     return <AuthCallback />;
   }
 

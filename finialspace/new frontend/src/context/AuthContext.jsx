@@ -78,6 +78,23 @@ export const AuthProvider = ({ children }) => {
     setProfile(null);
   };
 
+  // Explicit session refresh method to ensure fresh state before navigation
+  const refreshSession = async () => {
+    try {
+      const { data: { session: s }, error } = await supabase.auth.getSession();
+      if (s?.user) {
+        setSession(s);
+        setUser(s.user);
+        setProfile(deriveUserProfile(s.user));
+        setLoading(false);
+        return s;
+      }
+    } catch (err) {
+      console.error('Error refreshing session:', err);
+    }
+    return null;
+  };
+
   const token = session?.access_token || null;
   const isAuthenticated = Boolean(user && session);
 
@@ -94,6 +111,7 @@ export const AuthProvider = ({ children }) => {
         signInWithGoogle,
         login,
         logout,
+        refreshSession,
       }}
     >
       {children}
